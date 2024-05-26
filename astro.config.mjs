@@ -7,7 +7,7 @@ import sitemap from '@astrojs/sitemap';
 // https://astro.build/config
 export default defineConfig({
 	site: 'https://CCG-Magno.github.io',
-	base: 'blog',
+	// base: 'blog',
 	integrations: [mdx(
 		remarkMath, // relevant
 		rehypeKatex // relevant
