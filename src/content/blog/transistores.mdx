@@ -5,6 +5,7 @@ pubDate: 'Mayo 25 2024'
 heroImage: '/src/assets/transistors/transistores-encabezado.jpg'
 ---
 import { Image } from 'astro:assets';
+import { mosfet } from '../../assets/transistors/npnmosfet.jpg'
 import Latex from '../../components/Latex.astro';
 
 ## Discusión
@@ -53,7 +54,7 @@ interruptores ("_switches_") sin la interacción física directa de una persona.
  width={200}
  height={200}
  alt="BJT"
- src="/src/assets/transistors/bjt-npn.jpg"/>
+ src={mosfet.src}/>
 
 ### FET
 > Terminales
@@ -66,7 +67,7 @@ interruptores ("_switches_") sin la interacción física directa de una persona.
  width={200}
  height={200}
  alt="MOSFET"
- src="/src/assets/transistors/npnmosfet.jpg"/>
+ src={mosfet.src}/>
 ### Ecuaciones Caracteristicas
 ---
 #### BJT (npn) Activo
