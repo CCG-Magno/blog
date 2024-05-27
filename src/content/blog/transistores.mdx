@@ -2,13 +2,16 @@
 title: 'Transistores'
 description: 'Una breve introducción a la revolución de los semiconductores'
 pubDate: 'Mayo 25 2024'
-heroImage: '/src/assets/transistors/transistores-encabezado.jpg?url'
+heroImage: '/src/assets/transistors/transistoresencabezado.jpg?url'
 ---
 import { Image } from 'astro:assets';
+import Latex from '../../components/Latex.astro';
+
 import npnmosfet from '../../assets/transistors/npnmosfet.png?url';
 import bjtnpn from '../../assets/transistors/bjtnpn.jpg?url';
 import bandgap from '../../assets/transistors/bandgap.png?url';
-import Latex from '../../components/Latex.astro';
+import vacuumtube from '../../assets/transistors/vacuumtube.jpg?url';
+
 
 ## Discusión
 
@@ -17,6 +20,12 @@ se dió gracias primordialmente a la producción masiva de dispositivos a base d
 Inicialmente, fueron los tubos al vacío los cuales abrieron las puertas al mundo computacional.
 Mas no abastaron gracias a sus costos de manufactura, fragilidad, bajo volumen de producción, 
 y desperdicio energético.</p>
+
+<Image
+src={vacuumtube}
+width="400"
+height="400"
+alt="Tubo al Vacío"/>
 
 <p>
 En la modernidad, utilizamos los componentes llamados **Transistores** para
@@ -29,23 +38,26 @@ interruptores ("_switches_") sin la interacción física directa de una persona.
 <p> 
 La clasificacion de semiconductor es una a base de la capacidad
 que presenta un material para selectivamente permitir el flujo de corriente.
-En las Ciencias de Materiales, se utiliza la brecha energética para categorizar a
+En las [Ciencias de Materiales](https://es.wikipedia.org/wiki/Ciencia_de_materiales),
+ se utiliza la brecha energética para categorizar a
 los materiales en cuanto a su capacidad de permitir un flujo de electrones.
 
-La brecha energética es una característica intrínsica de los compuestos y elementos que se basa en la relacion de las 
+La **Brecha Energética** es una característica intrínsica de los compuestos y elementos que se basa en la relación de las 
 capas de electrones.
 La brecha se podría definir como una función del potencial eléctrico necesario
 para que un electrón pase de la capa de valencia hacia una capa de conducción.
 </p>
 
-{/* ![Brecha Energética](../../assets/transistors/bandgap.png) */}
+##### Energia de Brecha para Arseniuro de Galio, Fosfuro de Indio y Nitruro de Galio
 <Image
- width="400"
+ width="600"
  height="400"
- alt="Brecha Energetica"
+ alt="Brecha Energética"
  src={bandgap}/>
 
-[^1]: Nota: Los materiales son clasificados comunmente en las siguientes categorías de conductividad energética: Conductivos, Semiconductivos, Insulantes y Superconductivos.
+*Nota: eV son Electron Voltios, Eg es Energy Gap (Energia de la Brecha)*
+
+[^1]: Nota: Los materiales son clasificados comúnmente en las siguientes categorías de conductividad energética: Conductivos, Semiconductivos, Insulantes y Superconductivos.
 
 <p> Pero, si se supone que actúen como interruptores y no los tocamos para que operen,
 ¿ cómo cambian de un estado a otro (de encendido a apagado y viceversa) ? </p>
@@ -53,13 +65,16 @@ para que un electrón pase de la capa de valencia hacia una capa de conducción.
 <p> ¡Sencillo! Utilizamos Voltaje o Corriente ⚡️ en uno de sus terminales.</p>
 
 ## Usos
-- Amplificadores
+- Amplificadores (Micrófonos, Transformadores)
 - Memoria de Computadoras RAM/SSD (Ordenadores)
 - CPUs / SoC´s
 
 ## Tipos de Transistores
-- BJT's (Bipolar Junction Transistors)
-- MOSFET (Metal-Oxide Silicon Field Effect Transistors)
+---
+
+| BJT's | MOSFET |
+|--------------------------------------|------------------------------------------------------|
+| <Image width="200" height="200" alt="BJT" src={bjtnpn}/>| <Image width="200" height="200" alt="NMOS" src={npnmosfet}/>|
 
 ## Características
 - Mínimo tres terminales de conexión
@@ -71,30 +86,20 @@ para que un electrón pase de la capa de valencia hacia una capa de conducción.
  - **C**olector
  - **E**misor
 
- {/* ![Transistor BJT NPN](/assets/transistors/bjtnpn.jpg) */}
-<Image
- width="200"
- height="200"
- alt="BJT"
- src={bjtnpn}/>
-
 ### FET
 > Terminales
 - **G**ate (Compuerta)
 - **S**ource (Fuente)
 - **D**rain (Drenaje)
 
-<Image
- width="200"
- height="200"
- alt="NMOS"
- src={npnmosfet}/>
-
-### Ecuaciones Caracteristicas
+### Ecuaciones Características
 ---
-#### MOSFET (NMOS) Activo
+#### MOSFET (NMOS) Linear
 <Latex formula='I_{ds} = \frac{W}{L} \mu_{n} C_{ox} (V_{gs} - V_{th}) V_{ds}'/>
 <Latex formula=' R_{eq} = \frac{V_{ds}}{I_{ds}}'/>
+---
+#### MOSFET (NMOS) Triodo
+<Latex formula='I_{ds} = K[2 (V_{gs} - V{t}) V_{ds} - (V_{ds})^2]'/>
 ---
 #### BJT (npn) Activo
 <Latex formula='\beta = i_c / i_b'/>
