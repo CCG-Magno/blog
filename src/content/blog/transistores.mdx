@@ -1,13 +1,79 @@
 ---
 title: 'Transistores'
-description: 'Una breve introduccion a la revolucion de los semiconductores'
-pubDate: 'May 25 2024'
-heroImage: '/blog/public/blog-placeholder-3.jpg'
+description: 'Una breve introducción a la revolución de los semiconductores'
+pubDate: 'Mayo 25 2024'
+heroImage: '/blog/public/transistores-encabezado.jpg'
 ---
 
 import Latex from '../../components/Latex.astro';
 
-<Latex formula='i_d = (1/2) v_{ds} -v_0'/>
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Vitae ultricies leo integer malesuada nunc vel risus commodo viverra. Adipiscing enim eu turpis egestas pretium. Euismod elementum nisi quis eleifend quam adipiscing. In hac habitasse platea dictumst vestibulum. Sagittis purus sit amet volutpat. Netus et malesuada fames ac turpis egestas. Eget magna fermentum iaculis eu non diam phasellus vestibulum lorem. Varius sit amet mattis vulputate enim. Habitasse platea dictumst quisque sagittis. Integer quis auctor elit sed vulputate mi. Dictumst quisque sagittis purus sit amet.
+## Discusión
 
+<p> La revolución informática moderna 
+se dió gracias primordialmente a la producción masiva de dispositivos a base de materiales semiconductivos.
+Inicialmente, fueron los tubos al vacío los cuales abrieron las puertas al mundo computacional.
+Mas no abastaron gracias a sus costos de manufactura, fragilidad, bajo volumen de producción, 
+y desperdicio energético.</p>
+
+<p>
+En la modernidad, utilizamos los componentes llamados **Transistores** para
+todos los dispositivos electrónicos del día a día. Los transistores son indispensables
+gracias a sus características energéticas, tanto térmicas como electroconductivas.
+Es vital que estos sean semiconductores ya que brindan la capacidad de actuar como
+interruptores ("_switches_") sin la interacción física directa de una persona.
+</p>
+
+> Pero, si se supone que actúen como interruptores y no los tocamos para que operen,
+> ¿ cómo cambian de un estado a otro (de encendido a apagado y viceversa) ?
+
+> ¡Sencillo! Utilizamos Voltaje o Corriente ⚡️ en uno de sus terminales.
+
+## Usos
+- Amplificadores
+- Interruptores
+- Circuitos Lógicos
+- Memoria de Computadoras (Ordenadores)
+
+## Tipos de Transistores
+- BJT's (Bipolar Junction Transistors)
+- MOSFET (Metal-Oxide Silicon Field Effect Transistors)
+
+## Características
+- Mínimo tres terminales de conexión
+- Creados a base de materiales semiconductores: Galio, Arsénico, Silicio, Germanio, Indium
+
+### BJT
+> Terminales
+ - **B**ase
+ - **C**olector
+ - **E**misor
+
+ ![Transistor BJT NPN](/public/bjt-npn.jpg)
+
+### FET
+> Terminales
+- **G**ate (Compuerta)
+- **S**ource (Fuente)
+- **D**rain (Drenaje)
+
+![Transistor MOSFET NPN](/public/npn-mosfet.jpg)
+
+### Ecuaciones Caracteristicas
+---
+#### BJT (npn) Activo
+<Latex formula='\beta = i_c / i_b'/>
+<Latex formula='i_b = (I_s / \beta )e^{v_{be} / v_t}'/>
+<Latex formula='i_c = I_s e^{v_{be} / v_t}'/>
+---
+
+#### BJT (npn) Saturado
+<Latex formula=' I_e = I_c + I_b'/> 
+<Latex formula=' I_e = (\beta + 1) I_b'/> 
+<Latex formula=' I_c = \beta I_b'/>
+<Latex formula=' I_c = (\beta) / (\beta + 1) I_e'/> 
+<Latex formula=' I_c(sat) = (V_{cc} - V_{ce}(sat)) / R_c'/>
+<Latex formula=' \alpha = \beta / (\beta + 1)'/>
+
+## Referencias
+- [MIT Opencourse Ware](https://ocw.mit.edu/courses/6-071j-introduction-to-electronics-signals-and-measurement-spring-2006/b30aa58fb0c9915da21e5a5855384818_19_bjt_1.pdf)
