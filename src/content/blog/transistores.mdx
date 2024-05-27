@@ -2,11 +2,10 @@
 title: 'Transistores'
 description: 'Una breve introducción a la revolución de los semiconductores'
 pubDate: 'Mayo 25 2024'
-heroImage: '/blog/public/transistores-encabezado.jpg'
+heroImage: '/src/assets/transistores-encabezado.jpg'
 ---
-
+import { Image } from 'astro:assets';
 import Latex from '../../components/Latex.astro';
-
 
 ## Discusión
 
@@ -49,7 +48,12 @@ interruptores ("_switches_") sin la interacción física directa de una persona.
  - **C**olector
  - **E**misor
 
- ![Transistor BJT NPN](/public/bjt-npn.jpg)
+ {/* ![Transistor BJT NPN](/assets/transistors/bjt-npn.jpg) */}
+<Image
+ width={200}
+ height={200}
+ alt="BJT"
+ src="/src/assets/transistors/bjt-npn.jpg"/>
 
 ### FET
 > Terminales
@@ -57,8 +61,12 @@ interruptores ("_switches_") sin la interacción física directa de una persona.
 - **S**ource (Fuente)
 - **D**rain (Drenaje)
 
-![Transistor MOSFET NPN](/public/npn-mosfet.jpg)
-
+{/* ![Transistor MOSFET NPN](assets/transistors/npn-mosfet.jpg) */}
+<Image
+ width={200}
+ height={200}
+ alt="MOSFET"
+ src="/src/assets/transistors/npnmosfet.jpg"/>
 ### Ecuaciones Caracteristicas
 ---
 #### BJT (npn) Activo
