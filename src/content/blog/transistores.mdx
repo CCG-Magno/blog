@@ -2,10 +2,12 @@
 title: 'Transistores'
 description: 'Una breve introducción a la revolución de los semiconductores'
 pubDate: 'Mayo 25 2024'
-heroImage: '/src/assets/transistors/transistores-encabezado.jpg'
+heroImage: '/src/assets/transistors/transistores-encabezado.jpg?url'
 ---
 import { Image } from 'astro:assets';
-import { mosfet } from '../../assets/transistors/npnmosfet.jpg'
+import npnmosfet from '../../assets/transistors/npnmosfet.png?url';
+import bjtnpn from '../../assets/transistors/bjtnpn.jpg?url';
+import bandgap from '../../assets/transistors/bandgap.png?url';
 import Latex from '../../components/Latex.astro';
 
 ## Discusión
@@ -18,22 +20,42 @@ y desperdicio energético.</p>
 
 <p>
 En la modernidad, utilizamos los componentes llamados **Transistores** para
-todos los dispositivos electrónicos del día a día. Los transistores son indispensables
+todos los electrónicos del día a día. Los transistores son indispensables
 gracias a sus características energéticas, tanto térmicas como electroconductivas.
-Es vital que estos sean semiconductores ya que brindan la capacidad de actuar como
+Es vital que estos sean semiconductores[^1] ya que brindan la capacidad de actuar como
 interruptores ("_switches_") sin la interacción física directa de una persona.
 </p>
 
-> Pero, si se supone que actúen como interruptores y no los tocamos para que operen,
-> ¿ cómo cambian de un estado a otro (de encendido a apagado y viceversa) ?
+<p> 
+La clasificacion de semiconductor es una a base de la capacidad
+que presenta un material para selectivamente permitir el flujo de corriente.
+En las Ciencias de Materiales, se utiliza la brecha energética para categorizar a
+los materiales en cuanto a su capacidad de permitir un flujo de electrones.
 
-> ¡Sencillo! Utilizamos Voltaje o Corriente ⚡️ en uno de sus terminales.
+La brecha energética es una característica intrínsica de los compuestos y elementos que se basa en la relacion de las 
+capas de electrones.
+La brecha se podría definir como una función del potencial eléctrico necesario
+para que un electrón pase de la capa de valencia hacia una capa de conducción.
+</p>
+
+{/* ![Brecha Energética](../../assets/transistors/bandgap.png) */}
+<Image
+ width="400"
+ height="400"
+ alt="Brecha Energetica"
+ src={bandgap}/>
+
+[^1]: Nota: Los materiales son clasificados comunmente en las siguientes categorías de conductividad energética: Conductivos, Semiconductivos, Insulantes y Superconductivos.
+
+<p> Pero, si se supone que actúen como interruptores y no los tocamos para que operen,
+¿ cómo cambian de un estado a otro (de encendido a apagado y viceversa) ? </p>
+
+<p> ¡Sencillo! Utilizamos Voltaje o Corriente ⚡️ en uno de sus terminales.</p>
 
 ## Usos
 - Amplificadores
-- Interruptores
-- Circuitos Lógicos
-- Memoria de Computadoras (Ordenadores)
+- Memoria de Computadoras RAM/SSD (Ordenadores)
+- CPUs / SoC´s
 
 ## Tipos de Transistores
 - BJT's (Bipolar Junction Transistors)
@@ -41,7 +63,7 @@ interruptores ("_switches_") sin la interacción física directa de una persona.
 
 ## Características
 - Mínimo tres terminales de conexión
-- Creados a base de materiales semiconductores: Galio, Arsénico, Silicio, Germanio, Indium
+- Creados a base de materiales semiconductores: Galio, Arsénico, Silicio, Germanio, Indio
 
 ### BJT
 > Terminales
@@ -49,12 +71,12 @@ interruptores ("_switches_") sin la interacción física directa de una persona.
  - **C**olector
  - **E**misor
 
- {/* ![Transistor BJT NPN](/assets/transistors/bjt-npn.jpg) */}
+ {/* ![Transistor BJT NPN](/assets/transistors/bjtnpn.jpg) */}
 <Image
- width={200}
- height={200}
+ width="200"
+ height="200"
  alt="BJT"
- src={mosfet.src}/>
+ src={bjtnpn}/>
 
 ### FET
 > Terminales
@@ -62,20 +84,23 @@ interruptores ("_switches_") sin la interacción física directa de una persona.
 - **S**ource (Fuente)
 - **D**rain (Drenaje)
 
-{/* ![Transistor MOSFET NPN](assets/transistors/npn-mosfet.jpg) */}
 <Image
- width={200}
- height={200}
- alt="MOSFET"
- src={mosfet.src}/>
+ width="200"
+ height="200"
+ alt="NMOS"
+ src={npnmosfet}/>
+
 ### Ecuaciones Caracteristicas
+---
+#### MOSFET (NMOS) Activo
+<Latex formula='I_{ds} = \frac{W}{L} \mu_{n} C_{ox} (V_{gs} - V_{th}) V_{ds}'/>
+<Latex formula=' R_{eq} = \frac{V_{ds}}{I_{ds}}'/>
 ---
 #### BJT (npn) Activo
 <Latex formula='\beta = i_c / i_b'/>
 <Latex formula='i_b = (I_s / \beta )e^{v_{be} / v_t}'/>
 <Latex formula='i_c = I_s e^{v_{be} / v_t}'/>
 ---
-
 #### BJT (npn) Saturado
 <Latex formula=' I_e = I_c + I_b'/> 
 <Latex formula=' I_e = (\beta + 1) I_b'/> 
