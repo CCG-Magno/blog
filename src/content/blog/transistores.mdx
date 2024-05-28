@@ -2,7 +2,7 @@
 title: 'Transistores'
 description: 'Una breve introducción a la revolución de los semiconductores'
 pubDate: 'Mayo 25 2024'
-heroImage: '/src/assets/transistors/transistoresencabezado.jpg?url'
+heroImage: '../../src/assets/transistors/transistoresencabezado.jpg?url'
 ---
 import { Image } from 'astro:assets';
 import Latex from '../../components/Latex.astro';
@@ -11,8 +11,11 @@ import npnmosfet from '../../assets/transistors/npnmosfet.png?url';
 import bjtnpn from '../../assets/transistors/bjtnpn.jpg?url';
 import bandgap from '../../assets/transistors/bandgap.png?url';
 import vacuumtube from '../../assets/transistors/vacuumtube.jpg?url';
+import ram from '../../assets/transistors/ram.jpg?url';
+import m1 from '../../assets/transistors/m1.jpg?url';
+import amplifier from '../../assets/transistors/amplifier.jpg?url';
 
-
+<section>
 ## Discusión
 
 <p> La revolución informática moderna 
@@ -26,6 +29,7 @@ src={vacuumtube}
 width="400"
 height="400"
 alt="Tubo al Vacío"/>
+#### Tubos al Vacío
 
 <p>
 En la modernidad, utilizamos los componentes llamados **Transistores** para
@@ -47,7 +51,9 @@ capas de electrones.
 La brecha se podría definir como una función del potencial eléctrico necesario
 para que un electrón pase de la capa de valencia hacia una capa de conducción.
 </p>
+</section>
 
+<section>
 ##### Energia de Brecha para Arseniuro de Galio, Fosfuro de Indio y Nitruro de Galio
 <Image
  width="600"
@@ -63,56 +69,59 @@ para que un electrón pase de la capa de valencia hacia una capa de conducción.
 ¿ cómo cambian de un estado a otro (de encendido a apagado y viceversa) ? </p>
 
 <p> ¡Sencillo! Utilizamos Voltaje o Corriente ⚡️ en uno de sus terminales.</p>
+</section>
 
+<section>
 ## Usos
-- Amplificadores (Micrófonos, Transformadores)
-- Memoria de Computadoras RAM/SSD (Ordenadores)
-- CPUs / SoC´s
+---
 
+| Amplificadores | Memoria | CPUs |
+|:---:|:---:|:---:|
+| <Image width="200" height="200" alt="Amplificador" src={amplifier}/> | <Image width="200" height="200" alt="RAM" src={ram}/> | <Image width="200" height="200" alt="M1 Chip" src={m1}/> |
+
+</section>
+
+<section>
 ## Tipos de Transistores
 ---
 
 | BJT's | MOSFET |
-|--------------------------------------|------------------------------------------------------|
-| <Image width="200" height="200" alt="BJT" src={bjtnpn}/>| <Image width="200" height="200" alt="NMOS" src={npnmosfet}/>|
+| :---: | :---: |
+| <Image width="200" height="200" alt="BJT" src={bjtnpn}/> | <Image width="200" height="200" alt="NMOS" src={npnmosfet}/> |
 
-## Características
-- Mínimo tres terminales de conexión
-- Creados a base de materiales semiconductores: Galio, Arsénico, Silicio, Germanio, Indio
+</section>
 
-### BJT
-> Terminales
- - **B**ase
- - **C**olector
- - **E**misor
-
-### FET
-> Terminales
-- **G**ate (Compuerta)
-- **S**ource (Fuente)
-- **D**rain (Drenaje)
-
+<section>
 ### Ecuaciones Características
 ---
-#### MOSFET (NMOS) Linear
-<Latex formula='I_{ds} = \frac{W}{L} \mu_{n} C_{ox} (V_{gs} - V_{th}) V_{ds}'/>
-<Latex formula=' R_{eq} = \frac{V_{ds}}{I_{ds}}'/>
+| MOSFET (NMOS) Linear |
+|:---:|
+|<Latex formula='I_{ds} = \frac{W}{L} \mu_{n} C_{ox} (V_{gs} - V_{th}) V_{ds}'/>|
+|<Latex formula=' R_{eq} = \frac{V_{ds}}{I_{ds}}'/>|
 ---
-#### MOSFET (NMOS) Triodo
-<Latex formula='I_{ds} = K[2 (V_{gs} - V{t}) V_{ds} - (V_{ds})^2]'/>
+| MOSFET (NMOS) Triodo |
+|:---:|
+|<Latex formula='I_{ds} = K[2 (V_{gs} - V{t}) V_{ds} - (V_{ds})^2]'/>|
+|<Latex formula='K = K_{n} \frac{W}{2L}'/>|
+|<Latex formula='K_n = C_{ox} \mu_{n}'/> |
 ---
-#### BJT (npn) Activo
-<Latex formula='\beta = i_c / i_b'/>
-<Latex formula='i_b = (I_s / \beta )e^{v_{be} / v_t}'/>
-<Latex formula='i_c = I_s e^{v_{be} / v_t}'/>
+|BJT (npn) Activo|
+|:---:|
+|<Latex formula='\beta = \frac{i_c}{i_b}'/>|
+|<Latex formula='i_b = \frac{I_s}{\beta} e^{\frac{v_{be}}{v_t}}'/>|
+|<Latex formula='i_c = I_s e^{\frac{v_{be}}{v_t}}'/>|
 ---
-#### BJT (npn) Saturado
-<Latex formula=' I_e = I_c + I_b'/> 
-<Latex formula=' I_e = (\beta + 1) I_b'/> 
-<Latex formula=' I_c = \beta I_b'/>
-<Latex formula=' I_c = (\beta) / (\beta + 1) I_e'/> 
-<Latex formula=' I_c(sat) = (V_{cc} - V_{ce}(sat)) / R_c'/>
-<Latex formula=' \alpha = \beta / (\beta + 1)'/>
+|BJT (npn) Saturado|
+|:---:|
+| <Latex formula=' I_e = I_c + I_b'/> |
+| <Latex formula=' I_e = (\beta + 1) I_b'/> |
+| <Latex formula=' I_c = \beta I_b'/> |
+| <Latex formula=' I_c = \frac{\beta}{(\beta + 1)} I_e'/> |
+| <Latex formula=' I_c(sat) = \frac{(V_{cc} - V_{ce}(sat))}{R_c}'/> |
+| <Latex formula=' \alpha = \frac{\beta}{(\beta + 1)}'/> |
+</section>
 
+<section>
 ## Referencias
 - [MIT Opencourse Ware](https://ocw.mit.edu/courses/6-071j-introduction-to-electronics-signals-and-measurement-spring-2006/b30aa58fb0c9915da21e5a5855384818_19_bjt_1.pdf)
+</section>
