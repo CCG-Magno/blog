@@ -1,0 +1,84 @@
+---
+title: 'Binario'
+description: 'Una introduccion al sistema numerico binario.'
+pubDate: 'Mar 26 2025'
+---
+import Latex from '../../components/Latex.astro';
+El sistema numerico binario existe para representar las posibilidades: encendido o apagado de los transistores.
+
+Los numeros binarios, al igual que los decimales (base 10), portan su digito mas significativo en la posicion mas zurda disponible. (Considerando que los leemos de izquierda a derecha.) Aunque, se suelen ignorar los cero a la izquierda...
+
+...00001 es equivalente a 1
+...00000 es equivalente a 0
+...00010 es equivalente a 10
+
+etc...
+## Representaciones
+
+El conteo en el sistema binario sigue asi:
+
+$$
+0, 1, 10, 11, 100, 101, 110, 111, 1000, 1001, 1010, ...
+$$
+En decimal se veria asi el equivalente:
+
+$$
+0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, ...
+$$
+
+Si lo descomponemos en potencias:
+
+$$
+a_{n} 2^{(n)} + a_{n-1}2^{(n-1)} + a_{n-2}2^{(n-2)} + ... +a_{1}2^{(1)}
+ + a_{0} 2^{(0)}$$
+
+Rescrito utilizando notación de sumatorias:
+
+$$
+\sum^{i}_{n=0} a_n2^{n} | a \in \{0 ,1\}
+$$
+
+## Conversiones
+
+Para convertir de una base a otra, utilizamos la division:
+
+$$
+	numero_{a} \div {base_b} = residuo
+$$
+$$
+	4 \div 2 = 2
+$$
+$$
+ 4\mod 2 = 0
+$$
+
+Tomamos el dividendo, y con el repetimos el proceso:
+
+$$
+	2 \div 2 = 1
+$$
+
+$$
+2 \mod 2 = 0
+$$
+
+y finalmente, 
+
+$$
+	1 \div 2 = 0.5
+$$
+
+$$
+1 \mod 2 = 1
+$$
+
+Y obtenemos finalmente el numero binario: 
+
+$$
+
+$$$$ 10 0$$
+
+El algoritmo concluye cuando se llega a un cociente de cero.
+
+El resultado de las operaciones modulo genera cada digito de la transformacion hacia la nueva base.
+Este es el algoritmo de euclides para la conversion de bases numericas.
