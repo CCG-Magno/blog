@@ -1,7 +1,7 @@
+---
 title: Arreglos
 description: Introduccion a los Arreglos
 pubDate: July 6, 2025
----
 tags:
   - arreglos
   - ciencias
